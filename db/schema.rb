@@ -10,10 +10,48 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170529130408) do
+ActiveRecord::Schema.define(version: 20170529143942) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookings", force: :cascade do |t|
+    t.integer  "meeting_room_id"
+    t.integer  "user_id"
+    t.time     "begin_time"
+    t.time     "end_time"
+    t.float    "full_price"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["meeting_room_id"], name: "index_bookings_on_meeting_room_id", using: :btree
+    t.index ["user_id"], name: "index_bookings_on_user_id", using: :btree
+  end
+
+  create_table "meeting_rooms", force: :cascade do |t|
+    t.float    "hourly_price"
+    t.integer  "n_people"
+    t.integer  "user_id"
+    t.time     "closing_hour"
+    t.time     "opening_hour"
+    t.boolean  "saturday_open"
+    t.boolean  "sunday_open"
+    t.string   "location"
+    t.string   "layout"
+    t.string   "description"
+    t.string   "address"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["user_id"], name: "index_meeting_rooms_on_user_id", using: :btree
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer  "booking_id"
+    t.string   "content"
+    t.integer  "rating"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["booking_id"], name: "index_reviews_on_booking_id", using: :btree
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -28,8 +66,14 @@ ActiveRecord::Schema.define(version: 20170529130408) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "first_name"
+    t.string   "last_name"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "bookings", "meeting_rooms"
+  add_foreign_key "bookings", "users"
+  add_foreign_key "meeting_rooms", "users"
+  add_foreign_key "reviews", "bookings"
 end
