@@ -3,7 +3,7 @@
     <h1>Welcome to MR booking</h1>
     <p>Book meeting rooms easily</p>
 
-    <form action="#" class="form-inline">
+    <form action="/search" class="form-inline">
 
 
       <input type="text" name="location" class="form-control" placeholder="Location">
@@ -11,12 +11,12 @@
       <input type="number" name="n_people" class="form-control" placeholder="Number of people">
 
 
-      <select class="form-control">
+      <select class="form-control" name="duration">
         <option value="" disabled selected>For :</option>
         <option value="1">the morning</option>
         <option value="2">the afternoon</option>
         <option value="3">the evening</option>
-        <option value="4">the full-day</option>
+        <option value="4">the whole-day</option>
       </select>
 
       <input type="submit" value="Search" class="btn btn-danger">
