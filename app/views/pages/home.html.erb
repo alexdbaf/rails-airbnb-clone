@@ -4,15 +4,21 @@
     <p>Book meeting rooms easily</p>
 
     <form action="#" class="form-inline">
+
+
       <input type="text" name="location" class="form-control" placeholder="Location">
-      <input type="date" name="begin-date" class="form-control" placeholder="Begin time">
-      <input type="date" name="end-date" class="form-control" placeholder="End time">
+      <input type="date" name="date" class="form-control" placeholder="Begin time">
+      <input type="number" name="n_people" class="form-control" placeholder="Number of people">
+
+
       <select class="form-control">
-        <option value="" disabled selected>How many people ?</option>
-        <option value="1">1 person</option>
-        <option value="2">2 persons</option>
-        <option value="3">3 persons</option>
+        <option value="" disabled selected>For :</option>
+        <option value="1">the morning</option>
+        <option value="2">the afternoon</option>
+        <option value="3">the evening</option>
+        <option value="4">the full-day</option>
       </select>
+
       <input type="submit" value="Search" class="btn btn-danger">
       <input type="submit" value="List all" class="btn btn-info">
     </form>
