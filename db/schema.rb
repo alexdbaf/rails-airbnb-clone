@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170529150710) do
+ActiveRecord::Schema.define(version: 20170530144037) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,11 +18,11 @@ ActiveRecord::Schema.define(version: 20170529150710) do
   create_table "bookings", force: :cascade do |t|
     t.integer  "meeting_room_id"
     t.integer  "user_id"
-    t.time     "begin_time"
-    t.time     "end_time"
     t.float    "full_price"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.boolean  "morning"
+    t.boolean  "afternoon"
     t.index ["meeting_room_id"], name: "index_bookings_on_meeting_room_id", using: :btree
     t.index ["user_id"], name: "index_bookings_on_user_id", using: :btree
   end
@@ -31,8 +31,6 @@ ActiveRecord::Schema.define(version: 20170529150710) do
     t.float    "hourly_price"
     t.integer  "n_people"
     t.integer  "user_id"
-    t.time     "closing_hour"
-    t.time     "opening_hour"
     t.boolean  "saturday_open"
     t.boolean  "sunday_open"
     t.string   "location"
@@ -42,6 +40,8 @@ ActiveRecord::Schema.define(version: 20170529150710) do
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.string   "name"
+    t.boolean  "morning"
+    t.boolean  "afternoon"
     t.index ["user_id"], name: "index_meeting_rooms_on_user_id", using: :btree
   end
 
