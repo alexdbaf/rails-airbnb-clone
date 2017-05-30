@@ -12,10 +12,12 @@
 <body>
 
   <%= render "shared/navbar" %>
-  <%= yield %>
+  <div class="body-background">
+    <%= yield %>
+  </div>
 
   <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+   <p class="alert"><%= alert %></p>
 
   <%= render "shared/footer" %>
 
