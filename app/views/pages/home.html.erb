@@ -1,2 +1,18 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('background.jpg');">
+  <div class="banner-content">
+    <h1>Welcome to MR booking</h1>
+    <p>Book meeting rooms esaily</p>
+
+    <form action="#" class="form-inline">
+    <input type="text" name="location" class="form-control" placeholder="Location">
+      <input type="date" name="begin-date" class="form-control" placeholder="Begin time">
+      <input type="date" name="end-date" class="form-control" placeholder="End time">
+      <select class="form-control">
+        <option value="1">1 person</option>
+        <option value="2">2 persons</option>
+        <option value="3">3 persons</option>
+      </select>
+      <input type="submit" value="Search" class="btn btn-danger">
+    </form>
+  </div>
+</div>
