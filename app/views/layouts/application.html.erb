@@ -10,14 +10,15 @@
   <%= stylesheet_link_tag    'application', media: 'all' %>
 </head>
 <body>
+  <p class="notice"><%= notice %></p>
+   <p class="alert"><%= alert %></p>
 
   <%= render "shared/navbar" %>
   <div class="body-background">
     <%= yield %>
   </div>
 
-  <p class="notice"><%= notice %></p>
-   <p class="alert"><%= alert %></p>
+
 
   <%= render "shared/footer" %>
 
