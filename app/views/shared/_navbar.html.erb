@@ -1,40 +1,43 @@
-<div class="navbar-wagon">
+<div class="navbar-wagon navbar-wagon-fixed">
   <!-- Logo -->
   <a href="/" class="navbar-wagon-brand">
-    <!-- <img src="http://res.cloudinary.com/dvqk8mwdt/image/upload/v1495903601/cocktail-04_zaq2wo.jpg" /> -->
-    <%= image_tag "cocktail-04_zaq2wo.jpg" %>
-
+    <%= image_tag "home_logo.jpg", {class:"img-circle"} %>
   </a>
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
     <!-- Search form -->
-    <form action="" class="navbar-wagon-search">
+<!--     <form action="" class="navbar-wagon-search">
       <input type="text" class="navbar-wagon-search-input" placeholder="Search something">
       <button type="submit" class="navbar-wagon-search-btn">
         <i class="fa fa-search"></i>
       </button>
-    </form>
+    </form> -->
 
     <!-- Text link -->
-    <a href="" class="navbar-wagon-item navbar-wagon-link">Contact</a>
+    <a href="" class="navbar-wagon-item navbar-wagon-link">Login</a>
 
     <!-- Text link -->
-    <a href="" class="navbar-wagon-item navbar-wagon-link">Team</a>
+    <a href="" class="navbar-wagon-item navbar-wagon-link">Register</a>
 
     <!-- Notification link-->
-    <a href="" class="navbar-wagon-item navbar-wagon-link">
+<!--     <a href="" class="navbar-wagon-item navbar-wagon-link">
       <div class="badge-container">
         <i class="fa fa-envelope-o"></i>
         <div class="badge badge-blue">3</div>
       </div>
-    </a>
+    </a> -->
 
     <!-- Profile picture and dropdown -->
     <div class="navbar-wagon-item">
       <div class="dropdown">
-        <img src="http://placehold.it/50x50" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
+
+          <%= image_tag "no_avatar_user.png", { :data => { :toggle => "dropdown"}, :id => "navbar-wagon-menu", :class =>"avatar dropdown-toggle"} %>
+
+
+
+        <!-- <img src="http://placehold.it/50x50" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown"> -->
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
           <li><a href="#">Profile</a></li>
           <li><a href="#">Dashboard</a></li>
