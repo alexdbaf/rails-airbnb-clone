@@ -1,2 +1,3 @@
 class MeetingRoomsController < ApplicationController
+
 end
