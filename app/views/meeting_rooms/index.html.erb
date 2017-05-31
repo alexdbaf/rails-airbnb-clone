@@ -13,7 +13,7 @@
     <div class="col-xs-12 col-md-4">
           <div class="card">
         <div class="card-category"><%= mr.name %> </div>
-        <div class="card-image" style="background-image: url('http://teamne.net/wp-content/uploads/2014/07/Enchanting-Meeting-Room-Layout-Design-Showcasing-Dashing-Conference-Table-With-Countertop-Table-In-Black-Tone-And-Office-Chair-Also-Creative-Wall-Design-Ideas.jpg');"></div>
+        <div class="card-image" style="background-image: url('<%= cl_image_path mr.photo,crop: :fill %>');"></div>
         <div class="card-description">
           <h2><%= mr.name %></h2>
           <p><%= mr.description %></p>

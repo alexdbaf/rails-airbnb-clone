@@ -33,7 +33,7 @@
     <div class="navbar-wagon-item">
       <div class="dropdown">
 
-          <%= image_tag "no_avatar_user.png", { :data => { :toggle => "dropdown"}, :id => "navbar-wagon-menu", :class =>"avatar dropdown-toggle"} %>
+        <%= image_tag "no_avatar_user.png", { :data => { :toggle => "dropdown"}, :id => "navbar-wagon-menu", :class =>"avatar dropdown-toggle"} %>
 
 
 
@@ -47,7 +47,8 @@
     </div>
 
     <!-- Button (call-to-action) -->
-    <a href="" class="navbar-wagon-item navbar-wagon-button btn">Post stuff</a>
+    <%= link_to "Add yours !", new_meeting_room_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
+
   </div>
 
   <!-- Dropdown appearing on mobile only -->
