@@ -1,0 +1,12 @@
+<%= simple_form_for(@meeting_room) do |f| %>
+<%= f.input :name, label: "Name of your venue :" %>
+<%= f.input :description, label: "Please describe it:" %>
+<%= f.input :hourly_price, label: "Hourly price:"%>
+<%= f.input :morning, label: "Is it open in the morning?", as: :boolean %>
+<%= f.input :afternoon, label: "Is it open in the evening?", as: :boolean %>
+<%= f.input :saturday_open, label: "Is it open on Saturday?", as: :boolean %>
+<%= f.input :sunday_open, label: "Is it open on Sunday?", as: :boolean %>
+<%= f.input :photo %>
+<%= f.input :photo_cache, as: :hidden %>
+<%= f.submit %>
+<% end %>
