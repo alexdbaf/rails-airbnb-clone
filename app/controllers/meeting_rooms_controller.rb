@@ -26,7 +26,7 @@ class MeetingRoomsController < ApplicationController
   private
 
   def meeting_room_params
-    params.require(:meeting_room).permit(:id, :hourly_price, :n_people, :user_id, :morning, :afternoon, :saturday_open, :sunday_open, :location, :layout, :description, :adress, :name, :photo, :photo_cache)
+    params.require(:meeting_room).permit(:id, :hourly_price, :n_people, :user_id, :morning, :afternoon, :saturday_open, :sunday_open, :location, :layout, :description, :address, :name, :photo, :photo_cache)
 end
 
 end
