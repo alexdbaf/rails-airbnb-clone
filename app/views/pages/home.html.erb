@@ -1,16 +1,15 @@
-<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= cl_image_path 'bckgbanner_ybnzag', crop: :fill %>');">
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(255,175,123,0.5) 0%, rgba(215,109,119,0.5) 50%, rgba(58,28,113,0.5) 75%), url('<%= cl_image_path 'bckgbanner_ybnzag', crop: :fill %>');">
 
 
-
-  <div class="banner-content">
-    <h1>Welcome to MR booking</h1>
-    <p>Book meeting rooms easily</p>
+<div class="banner-content" style= "background-color: rgba(0,0,0, 0.35); padding: 10px 10px 10px 10px; border-radius: 5px; ">
+    <h1>Where do you want to meet ? </h1>
+    <p>You have a meeting in London, Berlin or even Paris ? Book & meet the same day! </p>
 
     <form action="/search" class="form-inline">
 
 
       <input type="text" name="location" class="form-control" placeholder="Location">
-      <input type="date" name="date" class="form-control" placeholder="Begin time">
+      <input type="date" name="date" class="form-control" placeholder="When?">
       <input type="number" name="n_people" class="form-control" placeholder="Number of people">
 
 
@@ -18,12 +17,37 @@
         <option value="" disabled selected>For :</option>
         <option value="1">the morning</option>
         <option value="2">the afternoon</option>
-        <option value="3">the evening</option>
-        <option value="4">the whole-day</option>
+        <option value="3">the whole-day</option>
       </select>
-
-      <input type="submit" value="Search" class="btn btn-danger">
-       <%= link_to "List All", meeting_rooms_path , class: "btn btn-info" %>
+      <br><br>
+      <input type="submit" value="Search" class="btn btn-danger btn-lg">
+      <%= link_to "List All", meeting_rooms_path , class: "btn btn-info btn-lg" %>
     </form>
   </div>
 </div>
+
+<style>
+  #footer {
+    background: rgb(0,0,0,0) !important;
+    display: none !important;
+  }
+  .navbar-wagon {
+    box-shadow: none !important;
+    background: none !important;
+  }
+  .navbar-wagon-brand img {
+    width: 12vh !important;
+    padding-top: 20px !important;
+  }
+  .navbar-wagon-link {
+    color: white !important;
+    font-size: 24px;
+  }
+  .navbar-wagon-link:hover {
+    color: #da552f !important;
+    text-decoration: none;
+  }
+  .body-background {
+    padding-top: 0 !important;
+  }
+</style>

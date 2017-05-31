@@ -16,7 +16,7 @@
       <%= f.input :sunday_open, label: "Is it open on Sunday?", as: :boolean %>
       <%= f.input :photo %>
       <%= f.input :photo_cache, as: :hidden %>
-      <%= f.input :user_id, input_html: { value: '1' }, as: :hidden %>
+      <%= f.input :user_id, input_html: { value:  user_signed_in? ? current_user.id : 1 }, as: :hidden %>
       <%= f.submit %>
       <% end %>
     </div>

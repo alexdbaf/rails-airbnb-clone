@@ -1,7 +1,8 @@
 #footer {
-  background: #333333;
+  // background: #DEDEDE;
+  background: linear-gradient(-225deg, rgba(255,175,123,0.5) 0%, rgba(215,109,119,0.4) 50%, rgba(58,28,113,0.4) 75%);
   display: flex;
-  color: #CCCCCC;
+  color: #494949;
   width: 100%;
   height: 7vh;
   position: relative;
@@ -12,16 +13,22 @@
 }
 #footer p {
   margin-top: 20px;
+  transition: color 0.5s ease;
+  font-variant: small-caps;
+  font-size: 20px;
+}
+#footer p:hover {
+  color: white;
 }
 #footer ul {
   margin-top: 10px;
 }
 #footer a {
-  color: #CCCCCC;
+  color: #595959;
   font-size: 30px;
   letter-spacing: 20px;
   transition: color 0.5s ease;
 }
 #footer a:hover{
-  color: yellow;
+  color: white;
 }
