@@ -1,7 +1,7 @@
 #footer {
-  background: #333333;
+  background: #DEDEDE;
   display: flex;
-  color: #CCCCCC;
+  color: #494949;
   width: 100%;
   height: 7vh;
   position: relative;
@@ -17,11 +17,11 @@
   margin-top: 10px;
 }
 #footer a {
-  color: #CCCCCC;
+  color: #595959;
   font-size: 30px;
   letter-spacing: 20px;
   transition: color 0.5s ease;
 }
 #footer a:hover{
-  color: yellow;
+  color: white;
 }
