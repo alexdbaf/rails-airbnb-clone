@@ -10,30 +10,30 @@
   <%= stylesheet_link_tag    'application', media: 'all' %>
 </head>
 <body>
-<!-- DEVISE ALERT NOT JUST FOR DEVICE BUT ANY ALERT -->
-   <% if notice %>
-  <div class="alert alert-info alert-dismissible" role="alert">
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-    <%= notice %>
-  </div>
-<% end %>
-<% if alert %>
-  <div class="alert alert-warning alert-dismissible" role="alert">
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-    <%= alert %>
-  </div>
-<% end %>
+  <!-- DEVISE ALERT NOT JUST FOR DEVICE BUT ANY ALERT -->
 
   <%= render "shared/navbar" %>
   <div class="body-background">
-    <%= yield %>
-  </div>
+       <% if notice %>
+       <div class="alert alert-info alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <%= notice %>
+      </div>
+      <% end %>
+      <% if alert %>
+      <div class="alert alert-warning alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <%= alert %>
+      </div>
+      <% end %>
+  <%= yield %>
+</div>
 
 
 
-  <%= render "shared/footer" %>
+<%= render "shared/footer" %>
 
 
-  <%= javascript_include_tag 'application' %>
+<%= javascript_include_tag 'application' %>
 </body>
 </html>
