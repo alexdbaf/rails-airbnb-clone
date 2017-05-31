@@ -11,8 +11,8 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-md-4"> <h1> How many persons fit ? <br></h1>
-    <%= @meeting_room.n_people.to_i.times do %>
-    <i class="fa fa-user" aria-hidden="true"></i><%end %></div>
+    <% @meeting_room.n_people.to_i.times do %>
+    <i class="fa fa-user" aria-hidden="true" style="font-size: 24px"></i><%end %></div>
     <div class="col-xs-12 col-md-4">EST </div>
     <div class="col-xs-12 col-md-4"> UN TEST</div>
   </div>
