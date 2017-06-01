@@ -2,31 +2,40 @@ class MeetingRoomsController < ApplicationController
 
   def index
    @meeting_rooms = MeetingRoom.all
- end
-
- def show
-  @meeting_room = MeetingRoom.find(params[:id])
-end
-
-def new
-  @meeting_room = MeetingRoom.new
-end
-
-def create
-  @meeting_room = MeetingRoom.create(meeting_room_params)
-  if @meeting_room.save
-    redirect_to meeting_room_path(@meeting_room)
-  else
-    render :new
   end
 
-end
+  def show
+    @meeting_room = MeetingRoom.find(params[:id])
+  end
 
-def destroy
-  @meeting_room = MeetingRoom.find(params[:id])
-  @meeting_room.destroy
-  redirect_to meeting_rooms_path
-end
+  def new
+    @meeting_room = MeetingRoom.new
+  end
+
+  def create
+    @meeting_room = MeetingRoom.create(meeting_room_params)
+    if @meeting_room.save
+      redirect_to meeting_room_path(@meeting_room)
+    else
+      render :new
+    end
+  end
+
+  def destroy
+    @meeting_room = MeetingRoom.find(params[:id])
+    if !user_signed_in?
+      flash[:alert] = "You can't destroy a meeting room that's not yours"
+      redirect_to meeting_room_path(@meeting_room)
+    elsif current_user == @meeting_room.user
+      @meeting_room.destroy
+      redirect_to meeting_rooms_path
+      flash[:notice] = "Meeting room has been destroyed"
+    else
+      flash[:alert] = "You can't destroy a meeting room that's not yours"
+      redirect_to meeting_room_path(@meeting_room)
+    end
+
+  end
 
 private
 
