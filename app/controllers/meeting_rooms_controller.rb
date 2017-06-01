@@ -27,6 +27,9 @@ class MeetingRoomsController < ApplicationController
     if !user_signed_in?
       flash[:alert] = "You can't destroy a meeting room that's not yours"
       redirect_to meeting_room_path(@meeting_room)
+    elsif !@meeting_room.bookings.empty?
+      flash[:alert] = "You can't destroy a meeting room that has pending bookings"
+      redirect_to meeting_room_path(@meeting_room)
     elsif current_user == @meeting_room.user
       @meeting_room.destroy
       redirect_to meeting_rooms_path

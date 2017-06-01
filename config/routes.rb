@@ -6,9 +6,7 @@ Rails.application.routes.draw do
     collection do
       get 'search'
     end
-    member do
-      resources :bookings, only: [:new, :create]
-    end
+    resources :bookings, only: [:new, :create]
   end
 
   resources :bookings, only: [:index, :edit, :show, :update, :destroy]

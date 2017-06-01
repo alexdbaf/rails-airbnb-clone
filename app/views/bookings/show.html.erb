@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+      <div class="card text-center" style= "padding-left: 15px; padding-right: 15px; height: 600px !important;">
+      <h1>Your booking n°<%= @booking.id %></h1>
+      <h3>Meeting Room</h3>
+      <p><%= @booking.meeting_room.name %></p>
+      <h3>When</h3>
+      <p><%= @booking.day %></p>
+      <h3>How long</h3>
+      <p>
+      <% if @booking.afternoon && @booking.morning %>
+        <% @booking.full_price = 2 * @booking.meeting_room.hourly_price %>
+        <% @booking.save %>
+        Full day
+      <% elsif @booking.morning && !@booking.afternoon %>
+        <% @booking.full_price = @booking.meeting_room.hourly_price %>
+        <% @booking.save %>
+        Morning only
+      <% else  %>
+        <% @booking.full_price = @booking.meeting_room.hourly_price %>
+        <% @booking.save %>
+        Evening only
+      <% end %>
+      </p>
+      <h3>Price</h3>
+      <p>
+        <%= @booking.full_price %>€
+      </p>
+      <br>
+      <%= link_to "Delete this booking" , booking_path, method: :delete, class: "btn btn-danger" %>
+      </div>
+    </div>
+  </div>
+</div>
