@@ -4,7 +4,8 @@ class MeetingRoom < ApplicationRecord
   has_many :users, through: :bookings
   has_many :reviews, through: :bookings
   validates :name, :n_people, :hourly_price, :description, presence: true
-  validates :hourly_price, :n_people, numericality: true
+  validates :hourly_price, numericality: { greater_than: 0, less_than: 200 }
+  validates :n_people, numericality: { only_integer: true, greater_than: 0, less_than: 100 }
   validates :name, :description, :address, length: { maximum: 100 }
 
   geocoded_by :address
