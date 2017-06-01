@@ -22,3 +22,16 @@
     </div>
   </div>
 </div>
+
+
+<%= content_for(:after_js) do %>
+  <script>
+   function initAutocomplete() {
+      autocomplete = new google.maps.places.Autocomplete((document.getElementById('meeting_room_address')),{types: ['geocode']});
+    }
+
+    $( document ).ready(function() {
+      initAutocomplete();
+    });
+  </script>
+<% end %>
