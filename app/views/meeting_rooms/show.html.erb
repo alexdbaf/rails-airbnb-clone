@@ -6,9 +6,6 @@
 
 <div class="container" style="margin-top:30px;">
   <div class="row">
-
-    <!-- <div class="card-show"> -->
-
     <div class="col-xs-12 col-md-8">
      <div class="card-show-description">
 
@@ -69,7 +66,42 @@
     </div>
 
   </div>
+</div>
+</div>
 
-  <!-- </div> -->
+<%= @lat %>
+<%= @lng %>
+
+
+
+
+<!-- gmaps api key :AIzaSyARt18xBWPplRgqTVPIBJL1PUEzF_gdR8U -->
+<div style='width: 100%;'>
+  <div id="map" style="height: 400px;"></div>
 </div>
-</div>
+
+<% content_for(:after_js) do %>
+<%= javascript_tag do %>
+
+  $(document).ready(function() {
+
+    var handler = Gmaps.build('Google');
+
+    handler.buildMap({ internal: { id: 'map' } }, function() {
+
+    markers = handler.addMarkers(<%= raw @hash.to_json %>);
+
+    handler.bounds.extendWith(markers);
+
+    handler.fitMapToBounds();
+
+    if (markers.length == 0) {
+      handler.getMap().setZoom(2);
+    } else if (markers.length == 1) {
+      handler.getMap().setZoom(15);
+    }
+  });
+
+});
+<% end %>
+<% end %>

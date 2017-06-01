@@ -6,6 +6,7 @@ class MeetingRoomsController < ApplicationController
 
   def show
     @meeting_room = MeetingRoom.find(params[:id])
+    @hash = [{ lat: @meeting_room.latitude, lng: @meeting_room.longitude }]
   end
 
   def new
@@ -37,10 +38,10 @@ class MeetingRoomsController < ApplicationController
 
   end
 
-private
+  private
 
-def meeting_room_params
-  params.require(:meeting_room).permit(:id, :hourly_price, :n_people, :user_id, :morning, :afternoon, :saturday_open, :sunday_open, :location, :layout, :description, :address, :name, :photo, :photo_cache)
-end
+  def meeting_room_params
+    params.require(:meeting_room).permit(:id, :hourly_price, :n_people, :user_id, :morning, :afternoon, :saturday_open, :sunday_open, :location, :layout, :description, :address, :name, :photo, :photo_cache)
+  end
 
 end
