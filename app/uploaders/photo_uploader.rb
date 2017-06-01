@@ -1,18 +1,17 @@
 class PhotoUploader < CarrierWave::Uploader::Base
   include Cloudinary::CarrierWave
 
+  process eager: true
+
+  version :standard do
+    cloudinary_transformation crop: :fill, gravity: :south
+  end
 
   def default_url
     "http://ofsbrandssitesbucket.s3.amazonaws.com/s3fs-public/OFS_meetingroom_conference_wr_02.jpg"
   end
 
 end
-
-
-
-
-
-
 
 
 
