@@ -89,7 +89,7 @@
 
     var handler = Gmaps.build('Google');
 
-    handler.buildMap({ internal: { id: 'map' } }, function() {
+    handler.buildMap({ provider: { scrollwheel: false, zoomControl: true }, internal: { id: 'map' } }, function() {
 
     markers = handler.addMarkers(<%= raw @hash.to_json %>);
 
