@@ -8,81 +8,72 @@
   </div>
 </div>
 
-<div class="container">
+<div class="container" style="margin-top:30px;">
   <div class="row">
 
+    <!-- <div class="card-show"> -->
 
-    <div class="card-show">
+    <div class="col-xs-12 col-md-8">
+     <div class="card-show-description">
 
-      <div class="card-show-description col-md-8">
-        <h2>Description</h2>
-        <p> <%= @meeting_room.description  %></p>
-        <%= cl_image_tag(@meeting_room.photo, :width => 600, :height => 250, :crop => :fill) %>
-
-      </div>
-
-
-      <div class="card-show-right  col-md-4">
-        <h4> Availaibility</h4>
-
-        <p>Morning
-
-          <%if @meeting_room.morning %>
-          <i class="fa fa-check-circle-o"></i>
-          <% else %>
-          <i class="fa fa-circle-o"></i>
-          <%end%>
-        </p>
-
-        <p>Afternoon
-
-          <%if @meeting_room.afternoon %>
-          <i class="fa fa-check-circle-o"></i>
-          <% else %>
-          <i class="fa fa-circle-o"></i>
-          <%end%>
-        </p>
-
-
-        <p>Saturday
-
-          <%if @meeting_room.saturday_open %>
-          <i class="fa fa-check-circle-o"></i>
-          <% else %>
-          <i class="fa fa-circle-o"></i>
-          <%end%>
-        </p>
-
-
-
-
-        <p>Sunday
-
-          <%if @meeting_room.sunday_open %>
-          <i class="fa fa-check-circle-o"></i>
-          <% else %>
-          <i class="fa fa-circle-o"></i>
-          <%end%>
-        </p>
-
-        <br>
-
-        <h4> Hourly price</h4>
-        <p> <%= @meeting_room.hourly_price  %> € /h</p>
-
-        <br>
-
-
-        <h4> Size <br></h4>
-        <p> <%= @meeting_room.n_people  %> people</p>
-
-        <% @meeting_room.n_people.to_i.times do %>
-        <i class="fa fa-user" aria-hidden="true" style="font-size: 10px"></i>
-        <%end %>
-
-      </div>
-
+      <h2>Description</h2>
+      <p> <%= @meeting_room.description  %></p>
+      <%= cl_image_tag(@meeting_room.photo, :width => 600, :height => 250, :crop => :fill, :radius => 10) %>
 
     </div>
   </div>
+
+  <div class="col-xs-12 col-md-4">
+    <div class="card-show-right">
+      <h4> Availaibility</h4>
+
+      <p><%if @meeting_room.morning %>
+        <i class="fa fa-check-circle-o"></i>
+        <% else %>
+        <i class="fa fa-circle-o"></i>
+        <%end%> Morning
+      </p>
+
+      <p><%if @meeting_room.afternoon %>
+        <i class="fa fa-check-circle-o"></i>
+        <% else %>
+        <i class="fa fa-circle-o"></i>
+        <%end%> Afternoon
+      </p>
+
+      <p><%if @meeting_room.saturday_open %>
+        <i class="fa fa-check-circle-o"></i>
+        <% else %>
+        <i class="fa fa-circle-o"></i>
+        <%end%> Saturday
+      </p>
+
+      <p><%if @meeting_room.sunday_open %>
+        <i class="fa fa-check-circle-o"></i>
+        <% else %>
+        <i class="fa fa-circle-o"></i>
+        <%end%> Sunday
+      </p>
+
+      <br>
+
+      <h4> Hourly price</h4>
+      <p> <%= @meeting_room.hourly_price  %> € /h</p>
+
+      <br>
+
+
+      <h4> Size <br></h4>
+      <p> <%= @meeting_room.n_people  %> people</p>
+
+      <% @meeting_room.n_people.to_i.times do %>
+      <i class="fa fa-user" aria-hidden="true" style="font-size: 10px"></i>
+      <%end %>
+
+    </div>
+
+  </div>
+
+  <!-- </div> -->
+</div>
 </div>
