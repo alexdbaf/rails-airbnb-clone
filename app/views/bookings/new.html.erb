@@ -1,1 +1,14 @@
-new.html.erb
+<div class="container">
+  <div class="row">
+  <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+      <h2>Book <%= @meeting_room.name %> !</h2>
+
+      <%= simple_form_for(@meeting_room, @booking) do |f| %>
+      <%= f.input :date, label: "When do you want to use it ?"  %>
+      <%= f.input :morning, label: "Do you want to occupy the room in the morning?", as: :boolean %>
+      <%= f.input :afternoon, label: "Do you want to occupy the room in the afternoon?", as: :boolean %>
+      <%= f.submit %>
+      <% end %>
+    </div>
+  </div>
+</div>
