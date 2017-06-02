@@ -5,7 +5,7 @@
     <h1 style= "background-color: rgba(38,208,206,0.5);"> Where do you want to meet ? </h1>
     <p style= "background-color: rgba(26,41,128,0.5);">You have a meeting in London, Berlin or even Paris ? Book & meet the same day! </p>
 
-    <form action="/search" class="form-inline">
+    <form action="/meeting_rooms/search" class="form-inline">
 
 
       <input type="text" name="location" class="form-control" placeholder="Location">
@@ -20,7 +20,7 @@
         <option value="3">the whole-day</option>
       </select>
       <br><br>
-      <input type="submit" value="Search" class="btn btn-danger btn-lg">
+      <button type="submit" class="btn btn-danger btn-lg">Search</button>
       <%= link_to "List All", meeting_rooms_path , class: "btn btn-info btn-lg" %>
     </form>
   </div>

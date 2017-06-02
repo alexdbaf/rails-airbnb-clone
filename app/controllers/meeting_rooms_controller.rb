@@ -4,6 +4,25 @@ class MeetingRoomsController < ApplicationController
    @meeting_rooms = MeetingRoom.all
   end
 
+  def search
+    case params[:duration]
+    when "1"
+      @s_morning = true
+      @s_evening = false
+    when "2"
+      @s_morning = false
+      @s_afternoon = true
+    when "3"
+      @s_morning = true
+      @s_afternoon = true
+    else
+      @s_morning = false
+      @s_evening = false
+    end
+    @meeting_rooms = MeetingRoom.where("n_people >= ? AND morning = ? AND afternoon = ?", params[:n_people], @s_morning, @s_evening)
+
+  end
+
   def show
     @meeting_room = MeetingRoom.find(params[:id])
     @hash = [{ lat: @meeting_room.latitude, lng: @meeting_room.longitude }]
