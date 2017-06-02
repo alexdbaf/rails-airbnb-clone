@@ -3,6 +3,12 @@ class BookingsController < ApplicationController
 
   def index
     @bookings = Booking.where(user: current_user.id)
+    @bookingsowner = []
+    current_user.meeting_rooms.each do |mr|
+      mr.bookings.each do |bk|
+        @bookingsowner << bk
+      end
+    end
   end
 
   def new
