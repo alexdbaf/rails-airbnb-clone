@@ -1,34 +1,52 @@
 <div class="pagebanner" style="background-image: linear-gradient(-225deg, rgba(38,208,206,0.5) 0%, rgba(26,41,128,0.5) 50%), url('<%= cl_image_path 'bannerfont_dm4pkp', crop: :fill %>');">
-      <h1 style= "background-color: rgba(38,208,206,0.5);">Your bookings</h1>
-      <p style= "background-color: rgba(26,41,128,0.5);">Can't remember your shit ? Here is a reminder.</p>
+  <h1 style= "background-color: rgba(38,208,206,0.5);">Your bookings</h1>
+  <p style= "background-color: rgba(26,41,128,0.5);">Can't remember your shit ? Here is a reminder.</p>
 </div>
 
+
 <div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-     <div class="text-center">
-      <h1>What you've booked</h1>
-        <% @bookings.each do |bk| %>
-          <p style="font-size: 2vh;"><%= link_to "Your booking n°#{bk.id} (#{bk.meeting_room.name} on #{bk.day})" , booking_path(bk) %></p>
-        <% end %>
+  <div class="cardbook">
+    <div class="text-center">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6">
+          <h1>What did you book</h1>
+          <% sumout = 0 %>
+          <% @bookings.each do |bk| %>
+          <p id="booking">
+            <%= link_to "Your booking n°#{bk.id} (#{bk.meeting_room.name} on #{bk.day})" , booking_path(bk) %>
+          </p>
+          <% sumout += bk.full_price %>
+          <% end %>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+          <h1>What did you rent</h1>
+          <% sumin = 0 %>
+          <% count = 0 %>
+          <% @bookingsowner.each do |bk| %>
+          <% sumin += bk.full_price %>
+          <% count += 1 %>
+          <% end %>
+          <p>How much money you made : <span id="bookitem"><%= sumin %>€</span></p>
+          <p>Your meeting-room(s) have been booked <span id="bookitem"><%= count %> time(s) !</span></p>
+        </div>
       </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-     <div class="text-center">
-     <h1>What you've rented</h1>
-      <% sum = 0 %>
-      <% count = 0 %>
-      <% @bookingsowner.each do |bk| %>
-        <% sum += bk.full_price %>
-        <% count += 1 %>
-      <% end %>
-        <p>How much money you made : <strong><%= sum %>€</strong></p>
-        <p>Your meeting-room(s) have been booked <strong><%= count %> time(s) !</strong></p>
+      <div class="row">
+        <div class="col-xs-12">
+          <h1>Did you make money on this website ?</h1>
+          <% if sumin > sumout %>
+          <p>Congratulations ! You made <span id="bookitempos"><%= sumin - sumout %>€</span></p>
+          <p>You must be a top businessman !</p>
+          <% elsif sumin < sumout %>
+          <p>Hmm ... how to tell you... Sorry but no. Your balance is <span id="bookitemneg"><%= sumin - sumout %>€</span> on this website...</p>
+          <p>Hope that you enjoyed it :) !</p>
+          <% else  %>
+          <p>You're at the break-even ! Time to book or rent some MR !</p>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
 </div>
+
 
 

@@ -1,0 +1,49 @@
+#booking a {
+  font-size: 2vh;
+  color: $darkblue;
+  transition: color 0.5s ease;
+}
+
+#booking a:hover {
+  color: $lightblue;
+  font-size: 2.2vh;
+  text-decoration: none;
+}
+
+#bookitempos {
+  color: $green;
+  opacity: 0.8;
+  font-size: 2vh;
+  transition: color 0.5s ease;
+}
+
+#bookitemneg {
+  color: $red;
+  opacity: 0.8;
+  font-size: 2vh;
+  transition: color 0.5s ease;
+}
+
+
+#bookitemneg:hover {
+  opacity: 1;
+  font-size: 2.2vh;
+}
+
+#bookitempos:hover {
+  opacity: 1;
+  font-size: 2.2vh;
+}
+
+.cardbook {
+  // text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  background-size: cover !important;
+  background-color: white;
+  color: #333333;
+  border: 1px #c5c4c4 solid;
+  position: relative;
+  border-radius: 5px;
+  margin: 10px 10px;
+  padding: 10px 10px;
+}
+
