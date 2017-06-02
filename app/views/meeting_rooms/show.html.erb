@@ -78,13 +78,6 @@
 </div>
 </div>
 
-<%= @lat %>
-<%= @lng %>
-
-
-
-
-<!-- gmaps api key :AIzaSyARt18xBWPplRgqTVPIBJL1PUEzF_gdR8U -->
 <div style='width: 100%;'>
   <div id="map" style="height: 400px;"></div>
 </div>
@@ -98,7 +91,15 @@
 
     handler.buildMap({ provider: { scrollwheel: false, zoomControl: true }, internal: { id: 'map' } }, function() {
 
-    markers = handler.addMarkers(<%= raw @hash.to_json %>);
+    // markers = handler.addMarkers(<%= raw @hash.to_json %>);
+
+
+    markers = handler.addMarkers([
+      {
+        "lat": <%= @meeting_room.latitude %>,
+        "lng": <%= @meeting_room.longitude %> ,
+        "infowindow": "<h4><%= @meeting_room.name %></h4><p><%= @meeting_room.address %></p>"
+      }]);
 
     handler.bounds.extendWith(markers);
 
@@ -109,8 +110,14 @@
     } else if (markers.length == 1) {
       handler.getMap().setZoom(15);
     }
+
   });
 
+
 });
+
+
+
+
 <% end %>
 <% end %>

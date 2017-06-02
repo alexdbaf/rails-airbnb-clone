@@ -25,7 +25,7 @@ class MeetingRoomsController < ApplicationController
 
   def show
     @meeting_room = MeetingRoom.find(params[:id])
-    @hash = [{ lat: @meeting_room.latitude, lng: @meeting_room.longitude }]
+    # @hash = [{ lat: @meeting_room.latitude, lng: @meeting_room.longitude }]
   end
 
   def new
