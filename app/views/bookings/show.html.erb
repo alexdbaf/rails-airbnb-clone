@@ -29,6 +29,9 @@
       </p>
       <br>
       <%= link_to "Delete this booking" , booking_path, method: :delete, class: "btn btn-danger" %>
+      <br>
+      <br>
+      <%= link_to "Add a review" , new_booking_review_path(@booking) , class: "btn btn-info" %>
       </div>
     </div>
   </div>

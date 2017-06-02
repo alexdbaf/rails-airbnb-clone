@@ -22,6 +22,26 @@
       <div class="text-center">
           <%= link_to "Delete this meeting room" , meeting_room_path, method: :delete, class: "btn btn-danger" %>
       </div>
+
+      <h3>Reviews</h3>
+    <hr>
+
+    <% @meeting_room.reviews.each do |r| %>
+
+      <h4><%= r.booking.user.email %> : </h4>
+      <p><%=  r.content %></p>
+      <p><%= r.rating %>/5</p>
+      <hr>
+
+    <% end %>
+
+
+
+
+
+
+
+
     </div>
   </div>
 
@@ -82,17 +102,20 @@
   <div id="map" style="height: 400px;"></div>
 </div>
 
+
+
+
+
+
 <% content_for(:after_js) do %>
-<%= javascript_tag do %>
 
-  $(document).ready(function() {
+<script>
 
-    var handler = Gmaps.build('Google');
+$(document).ready( function() {
 
-    handler.buildMap({ provider: { scrollwheel: false, zoomControl: true }, internal: { id: 'map' } }, function() {
+  var handler = Gmaps.build('Google');
 
-    // markers = handler.addMarkers(<%= raw @hash.to_json %>);
-
+  handler.buildMap({ provider: { scrollwheel: false, zoomControl: true }, internal: { id: 'map' } }, function() {
 
     markers = handler.addMarkers([
       {
@@ -107,17 +130,18 @@
 
     if (markers.length == 0) {
       handler.getMap().setZoom(2);
-    } else if (markers.length == 1) {
+
+    }else if (markers.length == 1) {
       handler.getMap().setZoom(15);
     }
 
-  });
+});
 
 
 });
 
 
 
+</script>
 
-<% end %>
 <% end %>
