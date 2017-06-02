@@ -12,21 +12,20 @@
   align-items: center;
 }
 #footer p {
-  margin-top: 20px;
+  margin-top: 2vh;
   transition: color 0.5s ease;
   font-variant: small-caps;
-  font-size: 20px;
+  font-size: 1.2vw;
 }
 #footer p:hover {
   color: white;
 }
 #footer ul {
-  margin-top: 10px;
+  margin-top: 1vh;
 }
 #footer a {
   color: #595959;
-  font-size: 30px;
-  letter-spacing: 20px;
+  letter-spacing: 2vh;
   transition: color 0.5s ease;
 }
 #footer a:hover{
