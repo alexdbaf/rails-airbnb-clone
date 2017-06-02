@@ -15,11 +15,12 @@
 
       <h2>Description</h2>
       <p> <%= @meeting_room.description  %></p>
-      <%= link_to(cl_image_path(@meeting_room.photo)) do %>
-      <%= cl_image_tag(@meeting_room.photo, :width => 600, :height => 250, :crop => :fill, :radius => 10, class: "img-responsive cld-responsive") %>
-      <% end %>
-      <br><br> <div class="text-center">
-      <%= link_to "Delete this meeting room" , meeting_room_path, method: :delete, class: "btn btn-danger" %>
+          <%= link_to(cl_image_path(@meeting_room.photo)) do %>
+            <%= cl_image_tag(@meeting_room.photo, :width => 600, :height => 250, :crop => :fill, :radius => 10, class: "img-responsive cld-responsive") %>
+          <% end %>
+      <br><br>
+      <div class="text-center">
+          <%= link_to "Delete this meeting room" , meeting_room_path, method: :delete, class: "btn btn-danger" %>
       </div>
     </div>
   </div>
