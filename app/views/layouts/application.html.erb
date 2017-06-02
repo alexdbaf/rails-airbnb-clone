@@ -8,6 +8,7 @@
   <%= csrf_meta_tags %>
   <%= action_cable_meta_tag %>
   <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= favicon_link_tag 'logo-internet.png' %>
 </head>
 <body>
   <!-- DEVISE ALERT NOT JUST FOR DEVICE BUT ANY ALERT -->
@@ -26,7 +27,7 @@
           <%= alert %>
         </div>
       <% end %>
-      
+
   <%= yield %>
 </div>
 
