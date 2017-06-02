@@ -18,6 +18,7 @@
           <i class="fa fa-user" aria-hidden="true"></i>
           <%= mr.n_people %>
         </div>
+        <div class="card-price"> <%= mr.hourly_price.to_i %>€</div>
         <%= link_to "#" , meeting_room_path(mr), class: "card-link" %>
       </div>
     </div>

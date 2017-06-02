@@ -1,6 +1,6 @@
 <div class="pagebanner" style="background-image: linear-gradient(-225deg, rgba(38,208,206,0.5) 0%, rgba(26,41,128,0.5) 50%), url('<%= cl_image_path 'bannerfont_dm4pkp', crop: :fill %>');">
-  <h1 style= "background-color: rgba(38,208,206,0.5);">Your bookings</h1>
-  <p style= "background-color: rgba(26,41,128,0.5);">Can't remember your shit ? Here is a reminder.</p>
+  <h1 style= "background-color: rgba(38,208,206,0.5);">Your dashboard</h1>
+  <p style= "background-color: rgba(26,41,128,0.5);">Can't remember your shit ? Want to see some stats ? You're at the good place !</p>
 </div>
 
 
@@ -37,7 +37,7 @@
           <p>Congratulations ! You made <span id="bookitempos"><%= sumin - sumout %>€</span></p>
           <p>You must be a top businessman !</p>
           <% elsif sumin < sumout %>
-          <p>Hmm ... how to tell you... Sorry but no. Your balance is <span id="bookitemneg"><%= sumin - sumout %>€</span> on this website...</p>
+          <p>Hmm ... how to tell you... Sorry but no. You've spent <span id="bookitemneg"><%= sumin - sumout %>€</span> more than what you earned on this website...</p>
           <p>Hope that you enjoyed it :) !</p>
           <% else  %>
           <p>You're at the break-even ! Time to book or rent some MR !</p>
