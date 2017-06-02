@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="row">
+  <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+      <h2>Review your booking</h2>
+
+      <%= simple_form_for([@booking, @review]) do |f| %>
+      <%= f.input :content, label: "Describe your experience :" %>
+      <%= f.input :rating, label: "Rate this event:" %>
+      <%= f.submit %>
+      <% end %>
+    </div>
+  </div>
+</div>
